@@ -1,3 +1,5 @@
+import StatCard from '@/components/dashboard/StatCard';
+
 export default function DashboardPage() {
   return (
     <div>
@@ -14,7 +16,11 @@ export default function DashboardPage() {
           Statistics
         </h2>
 
-        <div className="h-36 w-full rounded-md border border-slate-200 bg-white" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <StatCard title="Total Tasks" value={24} />
+          <StatCard title="Completed" value={18} />
+          <StatCard title="Pending" value={6} />
+        </div>
       </section>
 
       <section aria-label="Recent Tasks">
