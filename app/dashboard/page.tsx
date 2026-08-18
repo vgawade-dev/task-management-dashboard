@@ -1,6 +1,15 @@
 import StatCard from '@/components/dashboard/StatCard';
+import RecentTasks, { Task } from '@/components/dashboard/RecentTasks';
+import QuickActions from '@/components/dashboard/QuickActions';
 
 export default function DashboardPage() {
+  const sampleTasks: Task[] = [
+    { id: 1, title: 'Build Dashboard', status: 'completed' },
+    { id: 2, title: 'Create Task API', status: 'in-progress' },
+    { id: 3, title: 'Update Sidebar', status: 'pending' },
+    { id: 4, title: 'Fix Login UI', status: 'completed' },
+  ];
+
   return (
     <div>
       <div className="mb-6">
@@ -24,11 +33,15 @@ export default function DashboardPage() {
       </section>
 
       <section aria-label="Recent Tasks">
-        <h2 className="mb-3 text-xl font-semibold text-slate-800">
-          Recent Tasks
-        </h2>
+        <h2 className="mb-3 text-xl font-semibold text-slate-800">Recent Tasks</h2>
 
-        <div className="h-48 w-full rounded-md border border-slate-200 bg-white" />
+        <RecentTasks tasks={sampleTasks} />
+      </section>
+
+      <section aria-label="Quick Actions" className="mt-6">
+        <h2 className="mb-3 text-xl font-semibold text-slate-800">Quick Actions</h2>
+
+        <QuickActions />
       </section>
     </div>
   );
