@@ -1,11 +1,5 @@
 
-export type TaskStatus = 'completed' | 'in-progress' | 'pending';
-
-export interface Task {
-  id: number;
-  title: string;
-  status: TaskStatus;
-}
+import type { Task, TaskStatus } from '@/types/dashboard';
 
 interface RecentTasksProps {
   tasks: Task[];
@@ -26,12 +20,12 @@ export default function RecentTasks({ tasks }: RecentTasksProps) {
         {tasks.map((task) => (
           <li
             key={task.id}
-            className="flex items-center justify-between rounded-md border border-slate-200 bg-white px-4 py-3"
+            className="flex flex-col sm:flex-row items-start sm:items-center justify-between rounded-md border border-slate-200 bg-white px-4 py-3 gap-2"
           >
-            <div className="text-sm text-slate-700">{task.title}</div>
+            <div className="text-sm text-slate-700 min-w-0 truncate">{task.title}</div>
 
             <span
-              className={`inline-flex items-center rounded-full px-3 py-1 text-sm font-medium ${statusClasses[task.status]}`}
+              className={`inline-flex shrink-0 items-center rounded-full px-3 py-1 text-sm font-medium ${statusClasses[task.status]}`}
             >
               {task.status === 'in-progress'
                 ? 'In Progress'
