@@ -23,7 +23,7 @@ export default function DashboardPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {stats.map(({ title, value }) => (
-            <StatCard title={title} value={value} />
+            <StatCard  key={title} title={title} value={value} />
             //  key={title}
           ))}
         </div>
