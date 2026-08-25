@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Sidebar from "@/components/Sidebar/Sidebar";
+import { TaskProvider } from "@/components/Tasks/TaskProvider";
 
 export default function RootLayout({
   children,
@@ -10,15 +11,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
+        <TaskProvider>
+          <Navbar />
 
-        <div className="flex">
-          <Sidebar />
+          <div className="flex">
+            <Sidebar />
 
-          <main className="flex-1 p-6 bg-gray-100 min-h-screen">
-            {children}
-          </main>
-        </div>
+            <main className="flex-1 p-6 bg-gray-100 min-h-screen">
+              {children}
+            </main>
+          </div>
+        </TaskProvider>
       </body>
     </html>
   );
